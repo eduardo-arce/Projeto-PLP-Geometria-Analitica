@@ -2,8 +2,15 @@
 
 ## Alunos
 
-Eduardo Arce de Sales - eas6@cin.ufpe.br
-Wendell Pinheiro Abreu Marques - wpam@cin.ufpe.br
+Eduardo Arce de Sales (eas6@cin.ufpe.br).
+Wendell Pinheiro Abreu Marques (wpam@cin.ufpe.br).
+
+## Disciplina
+
+Disciplina: Paradigmas de Linguagem de Programação.
+Professor: Dr. Augusto Cezar Alves Sampaio.
+Campus: Centro de Informática (CIn).
+Universidade: Universidade Federal de Pernambuco (UFPE).
 
 ## Sobre
 
@@ -25,6 +32,11 @@ As funcionalidades a ser desenvolvidas estão exibidas a seguir:
     - Ponto médio;
     - Ângulo entre vetores;
     - Converter ângulos de graus para radianos e de radianos para graus;
+
+## Previsão das Apresentações
+
+* Apresentação 1 - Matrizes (11/04/2022).
+* Apresentação 2 - Geometria Analítica (16/05/2022).
 
 ## Fonte
 
