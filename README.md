@@ -3,13 +3,17 @@
 ## Alunos
 
 Eduardo Arce de Sales (eas6@cin.ufpe.br).
+
 Wendell Pinheiro Abreu Marques (wpam@cin.ufpe.br).
 
 ## Disciplina
 
 Disciplina: Paradigmas de Linguagem de Programação.
+
 Professor: Dr. Augusto Cezar Alves Sampaio.
+
 Campus: Centro de Informática (CIn).
+
 Universidade: Universidade Federal de Pernambuco (UFPE).
 
 ## Sobre
