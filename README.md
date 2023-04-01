@@ -66,8 +66,8 @@ java -jar Applet-0.0.1-jar-with-dependencies.jar
 
 ## Previsão das Apresentações
 
-* Apresentação 1 - Ponto e Reta (11/04/2022).
-* Apresentação 2 - A definir (16/05/2022).
+* Apresentação 1 - 11/04/2022.
+* Apresentação 2 - 16/05/2022.
 
 ## Fonte
 
