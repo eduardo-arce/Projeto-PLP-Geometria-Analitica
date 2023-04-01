@@ -18,29 +18,56 @@ Universidade: Universidade Federal de Pernambuco (UFPE).
 
 ## Sobre
 
-Este projeto será uma continuação do projeto de Matrizes, da turma de 2021/1.
-
-Para visualizar o projeto de referência, acesse: [https://github.com/bernardomjunior/PLP-Mplay](https://github.com/bernardomjunior/PLP-Mplay).
-
-Para este projeto, será feito o incremento de novas funcionalidades relacionadas a Matrizes e Geometria Analítica, dentro da linguagem imperativa 2.
+Para este projeto, será feito o incremento de novas funcionalidades relacionadas a Geometria Analítica, dentro da linguagem imperativa 2.
 
 As funcionalidades a ser desenvolvidas estão exibidas a seguir:
-* Matrizes:
-    - Operações matemáticas entre matrizes;
-    - Operações matemáticas entre matriz e escalar;
-    - Cálculo do determinante de matrizes;
-    - Aumentar capacidade de gerar matriz identidade de ordem 2 para superior;
-    - Obs.: A princípio, as operações de matrizes serão no máximo de dimensão 3x3, mas dependendo do tempo de desenvolvimento será considerada a possibilidade de cálculos com matrizes de dimensão NxN. 
-* Geometria Analítica:
+* Ponto e Reta:
     - Distância entre 2 pontos;
     - Ponto médio;
     - Ângulo entre vetores;
     - Converter ângulos de graus para radianos e de radianos para graus;
+* A definir.
+
+## Execução
+
+* Instalar Maven
+
+```bash
+sudo apt install maven -y
+```
+
+* Instalar JDK
+
+```bash
+sudo apt install openjdk-11-jdk
+```
+
+* Local
+
+```bash
+cd Imperativa2
+mvn clean generate-sources compile exec:java
+```
+
+* Applet
+
+```bash
+mvn package
+# Jar será gerado em ./Applet/target/
+```
+
+* Abrir Aplicação
+
+```bash
+# Acessar a pasta ./Applet/target/ e executar no terminal:
+java -jar Applet-0.0.1-jar-with-dependencies.jar
+```
+
 
 ## Previsão das Apresentações
 
-* Apresentação 1 - Matrizes (11/04/2022).
-* Apresentação 2 - Geometria Analítica (16/05/2022).
+* Apresentação 1 - Ponto e Reta (11/04/2022).
+* Apresentação 2 - A definir (16/05/2022).
 
 ## Fonte
 
