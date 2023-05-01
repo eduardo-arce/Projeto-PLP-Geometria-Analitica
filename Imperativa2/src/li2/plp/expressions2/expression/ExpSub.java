@@ -6,11 +6,15 @@ import li2.plp.expressions2.memory.AmbienteCompilacao;
 import li2.plp.expressions2.memory.AmbienteExecucao;
 import li2.plp.expressions2.memory.VariavelJaDeclaradaException;
 import li2.plp.expressions2.memory.VariavelNaoDeclaradaException;
+import li2.plp.imperative2.util.IncompatibleMatrixSizesException;
+import li2.plp.imperative2.util.Matriz;
 
 /**
 * Um objeto desta classe representa uma Expressao de Subtracao.
 */
 public class ExpSub extends ExpBinaria {
+
+	private Tipo tipo;
 
 	/**
 	 * Controi uma Expressao de Subtracao com as sub-expressoes especificadas.
@@ -27,7 +31,7 @@ public class ExpSub extends ExpBinaria {
 	/**
 	 * Retorna o valor da Expressao de Subtracao.
 	 */
-	public Valor avaliar(AmbienteExecucao amb) throws VariavelNaoDeclaradaException, VariavelJaDeclaradaException {
+	public Valor avaliar(AmbienteExecucao amb) throws VariavelNaoDeclaradaException, VariavelJaDeclaradaException, IncompatibleMatrixSizesException {
 		return new ValorInteiro(
 				((ValorInteiro)getEsq().avaliar(amb)).valor() -
 				((ValorInteiro)getDir().avaliar(amb)).valor()

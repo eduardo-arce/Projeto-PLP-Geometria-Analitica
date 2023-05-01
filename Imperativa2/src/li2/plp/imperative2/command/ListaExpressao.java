@@ -11,6 +11,7 @@ import li2.plp.imperative1.memory.AmbienteCompilacaoImperativa;
 import li2.plp.imperative1.memory.AmbienteExecucaoImperativa;
 import li2.plp.imperative1.memory.ListaValor;
 import li2.plp.imperative1.util.Lista;
+import li2.plp.imperative2.util.IncompatibleMatrixSizesException;
 
 public class ListaExpressao extends Lista<Expressao> {
 
@@ -27,7 +28,7 @@ public class ListaExpressao extends Lista<Expressao> {
 	}
 
 	public ListaValor avaliar(AmbienteExecucaoImperativa ambiente)
-			throws VariavelNaoDeclaradaException, VariavelJaDeclaradaException {
+			throws VariavelNaoDeclaradaException, VariavelJaDeclaradaException, IncompatibleMatrixSizesException {
 		if (length() >= 2)
 			return new ListaValor(getHead().avaliar(ambiente),
 					((ListaExpressao) getTail()).avaliar(ambiente));

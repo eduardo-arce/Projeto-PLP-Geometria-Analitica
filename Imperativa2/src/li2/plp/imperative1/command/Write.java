@@ -5,6 +5,7 @@ import li2.plp.imperative1.memory.AmbienteExecucaoImperativa;
 import li2.plp.imperative1.memory.AmbienteCompilacaoImperativa;
 import li2.plp.expressions2.memory.VariavelNaoDeclaradaException;
 import li2.plp.expressions2.memory.VariavelJaDeclaradaException;
+import li2.plp.imperative2.util.IncompatibleMatrixSizesException;
 
 public class Write implements IO {
 
@@ -26,7 +27,7 @@ public class Write implements IO {
 	 */
 	public AmbienteExecucaoImperativa executar(
 			AmbienteExecucaoImperativa ambiente)
-			throws VariavelJaDeclaradaException, VariavelNaoDeclaradaException {
+			throws VariavelJaDeclaradaException, VariavelNaoDeclaradaException, IncompatibleMatrixSizesException {
 		ambiente.write(expressao.avaliar(ambiente));
 		return ambiente;
 	}

@@ -12,6 +12,7 @@ import li2.plp.imperative1.memory.EntradaVaziaException;
 import li2.plp.imperative1.memory.ErroTipoEntradaException;
 import li2.plp.expressions2.memory.IdentificadorJaDeclaradoException;
 import li2.plp.expressions2.memory.IdentificadorNaoDeclaradoException;
+import li2.plp.imperative2.util.IncompatibleMatrixSizesException;
 
 public interface Comando {
 
@@ -26,8 +27,8 @@ public interface Comando {
 	 * @throws ErroTipoEntradaException 
 	 */
 	AmbienteExecucaoImperativa executar(AmbienteExecucaoImperativa ambiente)
-			throws IdentificadorJaDeclaradoException,
-			IdentificadorNaoDeclaradoException, EntradaVaziaException, ErroTipoEntradaException;
+            throws IdentificadorJaDeclaradoException,
+            IdentificadorNaoDeclaradoException, EntradaVaziaException, ErroTipoEntradaException, IncompatibleMatrixSizesException;
 
 	/**
 	 * Realiza a verificacao de tipos deste comando.

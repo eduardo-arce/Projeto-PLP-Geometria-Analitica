@@ -6,6 +6,7 @@ import li2.plp.expressions2.memory.AmbienteCompilacao;
 import li2.plp.expressions2.memory.AmbienteExecucao;
 import li2.plp.expressions2.memory.VariavelJaDeclaradaException;
 import li2.plp.expressions2.memory.VariavelNaoDeclaradaException;
+import li2.plp.imperative2.util.IncompatibleMatrixSizesException;
 
 /**
  * Um objeto desta classe representa uma Expressao de Igualdade entre Expressoes
@@ -32,7 +33,7 @@ public class ExpEquals extends ExpBinaria {
 	 */
 	@SuppressWarnings("unchecked")
 	public Valor avaliar(AmbienteExecucao amb)
-			throws VariavelNaoDeclaradaException, VariavelJaDeclaradaException {
+			throws VariavelNaoDeclaradaException, VariavelJaDeclaradaException, IncompatibleMatrixSizesException {
 		ValorConcreto esq = (ValorConcreto) getEsq().avaliar(amb);
 		ValorConcreto dir = (ValorConcreto) getDir().avaliar(amb);
 		return new ValorBooleano(esq.isEquals(dir));

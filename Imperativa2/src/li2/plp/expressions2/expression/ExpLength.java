@@ -6,6 +6,7 @@ import li2.plp.expressions2.memory.AmbienteCompilacao;
 import li2.plp.expressions2.memory.AmbienteExecucao;
 import li2.plp.expressions2.memory.VariavelJaDeclaradaException;
 import li2.plp.expressions2.memory.VariavelNaoDeclaradaException;
+import li2.plp.imperative2.util.IncompatibleMatrixSizesException;
 
 /**
  * Um objeto desta classe representa uma Expressao de tamanho de String.
@@ -34,7 +35,7 @@ public class ExpLength extends ExpUnaria {
 	 *          declarado mais de uma vez no mesmo bloco do ambiente.
 	 */
 	public Valor avaliar(AmbienteExecucao amb) throws VariavelJaDeclaradaException,
-			VariavelNaoDeclaradaException {
+			VariavelNaoDeclaradaException, IncompatibleMatrixSizesException {
 		return new ValorInteiro (((ValorString)getExp().avaliar(amb)).valor().length());
 	}
 

@@ -6,6 +6,7 @@ import li2.plp.imperative1.memory.EntradaVaziaException;
 import li2.plp.imperative1.memory.ErroTipoEntradaException;
 import li2.plp.expressions2.memory.IdentificadorJaDeclaradoException;
 import li2.plp.expressions2.memory.IdentificadorNaoDeclaradoException;
+import li2.plp.imperative2.util.IncompatibleMatrixSizesException;
 
 public class SequenciaComando implements Comando {
 
@@ -30,7 +31,7 @@ public class SequenciaComando implements Comando {
 	public AmbienteExecucaoImperativa executar(
 			AmbienteExecucaoImperativa ambiente)
 			throws IdentificadorJaDeclaradoException,
-			IdentificadorNaoDeclaradoException, EntradaVaziaException, ErroTipoEntradaException {
+			IdentificadorNaoDeclaradoException, EntradaVaziaException, ErroTipoEntradaException, IncompatibleMatrixSizesException {
 		return comando2.executar(comando1.executar(ambiente));
 	}
 

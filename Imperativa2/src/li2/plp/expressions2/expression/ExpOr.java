@@ -6,6 +6,7 @@ import li2.plp.expressions2.memory.AmbienteCompilacao;
 import li2.plp.expressions2.memory.AmbienteExecucao;
 import li2.plp.expressions2.memory.VariavelJaDeclaradaException;
 import li2.plp.expressions2.memory.VariavelNaoDeclaradaException;
+import li2.plp.imperative2.util.IncompatibleMatrixSizesException;
 
 /**
  * Um objeto desta classe representa uma Disjuncao Logica.
@@ -28,7 +29,7 @@ public class ExpOr extends ExpBinaria {
 	/**
 	 * Retorna o valor da Expressao de disjuncao logica
 	 */
-	public Valor avaliar(AmbienteExecucao amb) throws VariavelNaoDeclaradaException, VariavelJaDeclaradaException {
+	public Valor avaliar(AmbienteExecucao amb) throws VariavelNaoDeclaradaException, VariavelJaDeclaradaException, IncompatibleMatrixSizesException {
 	return new ValorBooleano(
 				((ValorBooleano)getEsq().avaliar(amb)).valor() ||
 				((ValorBooleano)getDir().avaliar(amb)).valor() );

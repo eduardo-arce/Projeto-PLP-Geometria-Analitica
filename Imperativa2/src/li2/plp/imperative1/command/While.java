@@ -8,6 +8,7 @@ import li2.plp.imperative1.memory.EntradaVaziaException;
 import li2.plp.imperative1.memory.ErroTipoEntradaException;
 import li2.plp.expressions2.memory.IdentificadorJaDeclaradoException;
 import li2.plp.expressions2.memory.IdentificadorNaoDeclaradoException;
+import li2.plp.imperative2.util.IncompatibleMatrixSizesException;
 
 public class While implements Comando {
 
@@ -34,7 +35,7 @@ public class While implements Comando {
 	public AmbienteExecucaoImperativa executar(
 			AmbienteExecucaoImperativa ambiente)
 			throws IdentificadorJaDeclaradoException,
-			IdentificadorNaoDeclaradoException, EntradaVaziaException, ErroTipoEntradaException {
+			IdentificadorNaoDeclaradoException, EntradaVaziaException, ErroTipoEntradaException, IncompatibleMatrixSizesException {
 		while (((ValorBooleano) expressao.avaliar(ambiente)).valor()) {
 			ambiente = comando.executar(ambiente);
 		}

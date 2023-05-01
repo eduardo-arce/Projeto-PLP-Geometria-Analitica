@@ -5,6 +5,7 @@ import li2.plp.expressions2.memory.AmbienteCompilacao;
 import li2.plp.expressions2.memory.AmbienteExecucao;
 import li2.plp.expressions2.memory.VariavelJaDeclaradaException;
 import li2.plp.expressions2.memory.VariavelNaoDeclaradaException;
+import li2.plp.imperative2.util.IncompatibleMatrixSizesException;
 
 /** 
  * Uma expressao &eacute; a unidade basica na Linguagem de Expressoes.
@@ -14,7 +15,7 @@ public interface Expressao {
 	/**
 	 * Avalia a expressao retornando seu Valor.
 	 */
-	Valor avaliar(AmbienteExecucao amb) throws VariavelNaoDeclaradaException, VariavelJaDeclaradaException;
+	Valor avaliar(AmbienteExecucao amb) throws VariavelNaoDeclaradaException, VariavelJaDeclaradaException, IncompatibleMatrixSizesException;
 
 	/**
 	 * Realiza a verificacao de tipos desta expressao.

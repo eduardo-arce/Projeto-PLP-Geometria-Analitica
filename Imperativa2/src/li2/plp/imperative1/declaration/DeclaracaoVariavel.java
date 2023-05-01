@@ -6,6 +6,7 @@ import li2.plp.expressions2.memory.IdentificadorJaDeclaradoException;
 import li2.plp.expressions2.memory.IdentificadorNaoDeclaradoException;
 import li2.plp.imperative1.memory.AmbienteCompilacaoImperativa;
 import li2.plp.imperative1.memory.AmbienteExecucaoImperativa;
+import li2.plp.imperative2.util.IncompatibleMatrixSizesException;
 
 public class DeclaracaoVariavel extends Declaracao {
 
@@ -32,7 +33,7 @@ public class DeclaracaoVariavel extends Declaracao {
 	public AmbienteExecucaoImperativa elabora(
 			AmbienteExecucaoImperativa ambiente)
 			throws IdentificadorJaDeclaradoException,
-			IdentificadorNaoDeclaradoException {
+			IdentificadorNaoDeclaradoException, IncompatibleMatrixSizesException {
 		ambiente.map(getId(), getExpressao().avaliar(ambiente));
 		return ambiente;
 	}

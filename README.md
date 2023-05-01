@@ -26,7 +26,6 @@ As funcionalidades a ser desenvolvidas estão exibidas a seguir:
     - Ponto médio;
     - Ângulo entre vetores;
     - Converter ângulos de graus para radianos e de radianos para graus;
-* A definir.
 
 ## Execução
 

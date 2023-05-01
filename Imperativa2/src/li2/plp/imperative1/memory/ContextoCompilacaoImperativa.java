@@ -31,5 +31,8 @@ public class ContextoCompilacaoImperativa extends ContextoCompilacao
         return aux;            
     }
     
+    public ListaValor getentrada() {
+        return entrada;
+    }
 }
 

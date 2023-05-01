@@ -16,6 +16,7 @@ import li2.plp.imperative2.*;
 import li2.plp.imperative2.command.*;
 import li2.plp.imperative2.declaration.*;
 import li2.plp.imperative2.memory.*;
+import li2.plp.imperative2.util.Matriz;
 import java.util.*;
 
 public class Imp2Parser {
@@ -128,6 +129,12 @@ TOKEN : /* TOKENS DE IMPERATIVA 1 */
 | < ELSE: "else" >
 }
 
+TOKEN : { /* OPERACOES DE MATRIZES */
+    < IDENTITY : "identity" > |
+    < TRANSPOSE : "transpose" > |
+    < DIST : "dist" >
+}
+
 TOKEN : /* TOKENS DE IMPERATIVA 2 */
 {
   < PROC: "proc" >
@@ -139,6 +146,8 @@ TOKEN : /* TOKENS DOS POSS�VEIS TIPOS */
   < INT : "int" >
 | < BOOLEAN  : "boolean" >
 | < STRING  : "string" >
+| < MATRIX : "matrix" >
+| < DOUBLE : "double" >
 
 }
 
@@ -251,6 +260,9 @@ TOKEN : /* OPERATORS */
 | < BIT_OR: "|" >
 | < XOR: "^" >
 | < REM: "%" >
+| < M_MULT: "***" >
+| < M_MINUS: "---" >
+| < M_PLUS : "+++">
 }
 
 Programa Input() :
@@ -396,7 +408,6 @@ Id PId() :
 	}
 }
 
-
 Valor PValorInteiro() :
 {
 	Token token;
@@ -478,6 +489,41 @@ Expressao PExpLength() :
 	}
 }
 
+Expressao PExpIdentity() :
+{
+    Expressao size;
+}
+{
+    <IDENTITY> size = PExpressao()
+    {
+        return new ExpIdentity(size);
+    }
+}
+
+Expressao PExpTranspose() :
+{
+    Expressao matrix;
+}
+{
+    <TRANSPOSE> matrix = PExpressao()
+    {
+        return new ExpTranspose(matrix);
+    }
+}
+
+
+Expressao PExpDist() :
+{
+    Expressao matrix;
+}
+{
+    <DIST> matrix = PExpressao()
+    {
+        return new ExpDist(matrix);
+    }
+}
+
+
 Expressao PExpPrimaria() :
 {
     Expressao retorno;
@@ -487,6 +533,7 @@ Expressao PExpPrimaria() :
 	    retorno = PId()
 	  | retorno = PValor() 
 	  | <LPAREN> retorno = PExpressao() <RPAREN>
+	  | retorno = PExpMatriz()
 	)
 	{
 		return retorno; 
@@ -505,6 +552,12 @@ Expressao PExpUnaria() :
 	  retorno = PExpNot() 
 	| 
 	  retorno = PExpLength()
+	|
+	  retorno = PExpIdentity()
+	|
+	  retorno = PExpTranspose()
+	|
+	  retorno = PExpDist()
 	)
 	{
 		return retorno;
@@ -521,6 +574,8 @@ Expressao PExpBinaria() :
 		  	retorno = PExpConcat()
 		| LOOKAHEAD (PExpPrimaria() <MINUS>)
 			retorno = PExpSub()
+        | LOOKAHEAD (PExpPrimaria() <M_MINUS> )
+            retorno = PExpSubMatrix()
 		| LOOKAHEAD (PExpPrimaria() <AND>)
 			retorno = PExpAnd()
 		| LOOKAHEAD (PExpPrimaria() <OR>)
@@ -529,6 +584,13 @@ Expressao PExpBinaria() :
 			retorno = PExpEquals()
 		| LOOKAHEAD (PExpPrimaria() <PLUS>)
 			retorno = PExpSoma()
+		| LOOKAHEAD (PExpPrimaria() <M_PLUS>)
+			retorno = PExpSomaMatriz()
+	    | LOOKAHEAD (PExpPrimaria() <M_MULT>)
+        	retorno = PExpMultMatriz()
+	    | LOOKAHEAD (PExpPrimaria() <STAR>)
+          	retorno = PExpMult()
+
 	)
 	{
 		return retorno;
@@ -547,6 +609,18 @@ ExpSoma PExpSoma() :
 	{return new ExpSoma(esq, dir);}
 }
 
+ExpSomaMatriz PExpSomaMatriz() :
+{
+	Expressao esq;
+	Expressao dir;
+}
+{
+	esq = PExpPrimaria()
+	<M_PLUS>
+	dir = PExpressao()
+	{return new ExpSomaMatriz(esq, dir);}
+}
+
 ExpSub PExpSub() :
 {
 	Expressao esq;
@@ -557,6 +631,18 @@ ExpSub PExpSub() :
 	<MINUS>
 	dir = PExpressao()
 	{return new ExpSub(esq, dir);}
+}
+
+ExpSubMatriz PExpSubMatrix() :
+{
+	Expressao esq;
+	Expressao dir;
+}
+{
+	esq = PExpPrimaria()
+	<M_MINUS>
+	dir = PExpressao()
+	{return new ExpSubMatriz(esq, dir);}
 }
 
 
@@ -610,6 +696,47 @@ ExpConcat PExpConcat() :
 	{return new ExpConcat(esq, dir);}
 }
 
+ExpMulti PExpMult() :
+{
+	Expressao esq;
+	Expressao dir;
+}
+{
+	esq = PExpPrimaria()
+	<STAR>
+	dir = PExpressao()
+	{return new ExpMulti(esq, dir);}
+}
+
+
+ExpMultiMatrix PExpMultMatriz() :
+{
+	Expressao esq;
+	Expressao dir;
+}
+{
+	esq = PExpPrimaria()
+	<M_MULT>
+	dir = PExpressao()
+	{return new ExpMultiMatrix(esq, dir);}
+}
+
+ExpMatriz PExpMatriz() :
+{
+ Expressao exp;
+ ArrayList<ArrayList<Expressao>> lista = new ArrayList<ArrayList<Expressao>>();
+ lista.add(new ArrayList<Expressao>());
+ int i = 0;
+}
+{
+    <LBRACKET> exp = PExpressao() {lista.get(i).add(exp);} ((<COMMA> | <BIT_OR> {i++; lista.add(new ArrayList<Expressao>());}) exp = PExpressao(){lista.get(i).add(exp);})* <RBRACKET>
+
+    {
+        System.out.println(lista);
+        return new ExpMatriz(lista);
+    }
+}
+
 Expressao PExpressao() :
 {
 	Expressao retorno;
@@ -618,10 +745,9 @@ Expressao PExpressao() :
 	(
 	    LOOKAHEAD (2) 
 	  		retorno = PExpUnaria()
-	  | LOOKAHEAD (PExpPrimaria() (<OR> | <AND> | <MINUS> | <PLUS> | <EQ> | <CONCAT>)) 
+	  | LOOKAHEAD (PExpPrimaria() (<OR> | <AND> | <MINUS> | <M_MINUS> | <PLUS> | <M_PLUS> | <EQ> | <CONCAT> | <STAR> | <M_MULT> ))
 	  		retorno = PExpBinaria()
-	  |
-	    retorno = PExpPrimaria()
+	  |                 retorno = PExpPrimaria()
 	)
 	{
 		return retorno;

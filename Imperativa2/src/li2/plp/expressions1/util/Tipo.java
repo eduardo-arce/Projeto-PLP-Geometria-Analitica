@@ -20,6 +20,8 @@ public interface Tipo {
 	 */
 	public abstract boolean eInteiro();
 
+	public abstract boolean eDouble();
+
 	/**
 	 * Indica se esta expressao &eacute; booleana.
 	 * 
@@ -35,6 +37,8 @@ public interface Tipo {
 	 *         <code>false</code> caso contrario.
 	 */
 	public abstract boolean eString();
+
+	public abstract boolean eMatriz();
 
 	/**
 	 * Compara este tipo com o tipo dado.

@@ -11,6 +11,7 @@ import li2.plp.expressions2.memory.AmbienteCompilacao;
 import li2.plp.expressions2.memory.AmbienteExecucao;
 import li2.plp.expressions2.memory.VariavelJaDeclaradaException;
 import li2.plp.expressions2.memory.VariavelNaoDeclaradaException;
+import li2.plp.imperative2.util.IncompatibleMatrixSizesException;
 
 public class ExpDeclaracao implements Expressao {
 
@@ -23,7 +24,7 @@ public class ExpDeclaracao implements Expressao {
 	}
 
 	public Valor avaliar(AmbienteExecucao ambiente)
-			throws VariavelNaoDeclaradaException, VariavelJaDeclaradaException {
+			throws VariavelNaoDeclaradaException, VariavelJaDeclaradaException, IncompatibleMatrixSizesException {
 
 		ambiente.incrementa();
 		Map<Id, Valor> resolvedValues = resolveValueBindings(ambiente);
@@ -43,7 +44,7 @@ public class ExpDeclaracao implements Expressao {
 	}
 
 	private Map<Id, Valor> resolveValueBindings(AmbienteExecucao ambiente)
-			throws VariavelNaoDeclaradaException, VariavelJaDeclaradaException {
+			throws VariavelNaoDeclaradaException, VariavelJaDeclaradaException , IncompatibleMatrixSizesException{
 
 		Map<Id, Valor> resolvedValues = new HashMap<Id, Valor>();
 

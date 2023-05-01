@@ -6,6 +6,7 @@ import li2.plp.expressions2.memory.AmbienteCompilacao;
 import li2.plp.expressions2.memory.AmbienteExecucao;
 import li2.plp.expressions2.memory.VariavelJaDeclaradaException;
 import li2.plp.expressions2.memory.VariavelNaoDeclaradaException;
+import li2.plp.imperative2.util.IncompatibleMatrixSizesException;
 
 /**
 * Um objeto desta classe representa uma Expressao de Concatenacao entre
@@ -29,7 +30,7 @@ public class ExpConcat extends ExpBinaria{
 	/**
 	 * Retorna o valor da Expressao de Concatenacao
 	 */
-	public Valor avaliar(AmbienteExecucao amb) throws VariavelNaoDeclaradaException, VariavelJaDeclaradaException {
+	public Valor avaliar(AmbienteExecucao amb) throws VariavelNaoDeclaradaException, VariavelJaDeclaradaException, IncompatibleMatrixSizesException {
 		return new ValorString(
 					( (ValorString) getEsq().avaliar(amb)).valor() +
 					( (ValorString) getDir().avaliar(amb)).valor()

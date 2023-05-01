@@ -6,6 +6,7 @@ import li2.plp.expressions2.memory.AmbienteCompilacao;
 import li2.plp.expressions2.memory.AmbienteExecucao;
 import li2.plp.expressions2.memory.VariavelJaDeclaradaException;
 import li2.plp.expressions2.memory.VariavelNaoDeclaradaException;
+import li2.plp.imperative2.util.IncompatibleMatrixSizesException;
 
 /**
  * Um objeto desta classe representa uma Expressao de Negacao logica.
@@ -32,7 +33,7 @@ public class ExpNot extends ExpUnaria{
 	 *            declarada no ambiente. 
 	 */
 	public Valor avaliar(AmbienteExecucao amb) throws VariavelJaDeclaradaException, 
-			VariavelNaoDeclaradaException {
+			VariavelNaoDeclaradaException, IncompatibleMatrixSizesException {
 		return new ValorBooleano(!((ValorBooleano) getExp().avaliar(amb)).valor());
 	}
 

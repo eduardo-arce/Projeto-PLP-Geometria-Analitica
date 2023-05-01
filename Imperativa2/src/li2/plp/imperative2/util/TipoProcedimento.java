@@ -33,9 +33,13 @@ public class TipoProcedimento implements Tipo {
 		return false;
 	}
 
-	public boolean eString() {
+	public boolean eDouble() {
 		return false;
 	}
+
+	public boolean eString() { return false; }
+
+	public boolean eMatriz() { return false; }
 
 	public boolean eValido() {
 		boolean retorno = true;

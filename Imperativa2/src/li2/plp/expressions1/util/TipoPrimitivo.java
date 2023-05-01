@@ -5,13 +5,15 @@ package li2.plp.expressions1.util;
  * Objetos desta classe sao imutaveis, portanto as vezes as instancias sao
  * compartilhadas.
  * 
- * Modificado em 11/07/2005 por Leonardo Lucena para usar tipos enumerados
+ * Modificado em 01/05/2023 por Eduar Arce para usar tipos double
  */
 public enum TipoPrimitivo implements Tipo {
 
 	INTEIRO("INTEIRO"),
 	BOOLEANO("BOOLEANO"),
-	STRING("STRING");
+	STRING("STRING"),
+	DOUBLE("DOUBLE"),
+	MATRIZ("MATRIZ");
 
 	protected String nome;
 
@@ -36,6 +38,10 @@ public enum TipoPrimitivo implements Tipo {
 		return this.eIgual(INTEIRO);
 	}
 
+	public boolean eDouble() {
+		return this.eIgual(DOUBLE);
+	}
+
 	/* (non-Javadoc)
 	 * @see li2.plp.expressions1.util.Tipo#eBooleano()
 	 */
@@ -48,6 +54,11 @@ public enum TipoPrimitivo implements Tipo {
 	 */
 	public boolean eString() {
 		return this.eIgual(STRING);
+	}
+
+	@Override
+	public boolean eMatriz() {
+		return this.eIgual(MATRIZ);
 	}
 
 	/* (non-Javadoc)
