@@ -132,7 +132,8 @@ TOKEN : /* TOKENS DE IMPERATIVA 1 */
 TOKEN : { /* OPERACOES DE MATRIZES */
     < IDENTITY : "identity" > |
     < TRANSPOSE : "transpose" > |
-    < DIST : "dist" >
+    < DIST : "dist" > |
+    < PM : "pm" >
 }
 
 TOKEN : /* TOKENS DE IMPERATIVA 2 */
@@ -523,6 +524,16 @@ Expressao PExpDist() :
     }
 }
 
+Expressao PExpPm() :
+{
+    Expressao matrix;
+}
+{
+    <PM> matrix = PExpressao()
+    {
+        return new ExpPm(matrix);
+    }
+}
 
 Expressao PExpPrimaria() :
 {
@@ -558,6 +569,8 @@ Expressao PExpUnaria() :
 	  retorno = PExpTranspose()
 	|
 	  retorno = PExpDist()
+	|
+	  retorno = PExpPm()
 	)
 	{
 		return retorno;

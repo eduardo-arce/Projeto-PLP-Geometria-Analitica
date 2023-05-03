@@ -67,6 +67,7 @@
 /home/eduardo/Área de Trabalho/UFPE/PLP/Projeto-PLP-Geometria-Analitica/Imperativa2/src/li2/plp/imperative1/memory/ContextoExecucaoImperativa.java
 /home/eduardo/Área de Trabalho/UFPE/PLP/Projeto-PLP-Geometria-Analitica/Imperativa2/src/li2/plp/expressions2/expression/ValorConcreto.java
 /home/eduardo/Área de Trabalho/UFPE/PLP/Projeto-PLP-Geometria-Analitica/Imperativa2/src/li2/plp/expressions2/expression/ExpSomaMatriz.java
+/home/eduardo/Área de Trabalho/UFPE/PLP/Projeto-PLP-Geometria-Analitica/Imperativa2/src/li2/plp/expressions2/expression/ExpPm.java
 /home/eduardo/Área de Trabalho/UFPE/PLP/Projeto-PLP-Geometria-Analitica/Imperativa2/src/li2/plp/expressions2/memory/IdentificadorNaoDeclaradoException.java
 /home/eduardo/Área de Trabalho/UFPE/PLP/Projeto-PLP-Geometria-Analitica/Imperativa2/src/li2/plp/imperative1/memory/ErroTipoEntradaException.java
 /home/eduardo/Área de Trabalho/UFPE/PLP/Projeto-PLP-Geometria-Analitica/Imperativa2/src/li2/plp/expressions1/util/TipoPrimitivo.java

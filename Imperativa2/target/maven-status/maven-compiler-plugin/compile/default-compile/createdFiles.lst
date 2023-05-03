@@ -39,6 +39,7 @@ li2/plp/imperative2/util/TipoProcedimento.class
 li2/plp/expressions2/expression/Expressao.class
 li2/plp/expressions2/memory/AmbienteExecucao.class
 li2/plp/imperative1/command/IO.class
+li2/plp/expressions2/expression/ExpPm.class
 li2/plp/expressions2/memory/IdentificadorJaDeclaradoException.class
 li2/plp/expressions2/expression/ExpBinaria.class
 li2/plp/expressions2/expression/ExpOr.class

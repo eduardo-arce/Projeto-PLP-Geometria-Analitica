@@ -21,14 +21,14 @@ public class ExpMatriz implements Expressao{
 
     @Override
     public Valor avaliar(AmbienteExecucao amb) throws VariavelNaoDeclaradaException, VariavelJaDeclaradaException, IncompatibleMatrixSizesException {
-        ArrayList<ArrayList<Integer>> listaInteiro = new ArrayList<>();
+        ArrayList<ArrayList<Double>> listaDouble = new ArrayList<>();
         for (int i = 0; i < lista.size(); i++) {
-            listaInteiro.add(new ArrayList<>());
-            for (int j = 0; j < lista.get(i).size(); j++) {
-                listaInteiro.get(i).add(((ValorInteiro) lista.get(i).get(j).avaliar(amb)).valor());
+            listaDouble.add(new ArrayList<>());
+            for (int j = 0; j < lista.get(i).size(); j++) {      
+                listaDouble.get(i).add(Double.parseDouble(lista.get(i).get(j).toString()));
             }
         }
-        return new ValorMatriz(new Matriz(listaInteiro));
+        return new ValorMatriz(new Matriz(listaDouble));
     }
 
     @Override
