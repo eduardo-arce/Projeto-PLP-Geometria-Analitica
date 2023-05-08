@@ -24,7 +24,7 @@ public class ValorDouble extends ValorConcreto<Double> {
 	 * @return os tipos possiveis desta expressao.
 	 */
 	public Tipo getTipo(AmbienteCompilacao amb) {
-		return TipoPrimitivo.MATRIZ;
+		return TipoPrimitivo.DOUBLE;
 	}
 
 	public ValorDouble clone(){

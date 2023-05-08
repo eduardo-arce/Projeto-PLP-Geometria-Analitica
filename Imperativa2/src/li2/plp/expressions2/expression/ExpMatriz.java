@@ -25,7 +25,11 @@ public class ExpMatriz implements Expressao{
         for (int i = 0; i < lista.size(); i++) {
             listaDouble.add(new ArrayList<>());
             for (int j = 0; j < lista.get(i).size(); j++) {      
-                listaDouble.get(i).add(Double.parseDouble(lista.get(i).get(j).toString()));
+                listaDouble.get(i).add(
+                    lista.get(i).get(j).toString().contains("-") ?
+                    Double.parseDouble(lista.get(i).get(j).toString().replaceAll("-", "")) * (-1) :
+                    Double.parseDouble(lista.get(i).get(j).toString())
+                );
             }
         }
         return new ValorMatriz(new Matriz(listaDouble));

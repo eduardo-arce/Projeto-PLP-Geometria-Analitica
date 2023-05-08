@@ -133,7 +133,8 @@ TOKEN : { /* OPERACOES DE MATRIZES */
     < IDENTITY : "identity" > |
     < TRANSPOSE : "transpose" > |
     < DIST : "dist" > |
-    < PM : "pm" >
+    < PM : "pm" >| 
+    < ANG : "ang" >
 }
 
 TOKEN : /* TOKENS DE IMPERATIVA 2 */
@@ -535,6 +536,17 @@ Expressao PExpPm() :
     }
 }
 
+Expressao PExpAng() :
+{
+    Expressao matrix;
+}
+{
+    <ANG> matrix = PExpressao()
+    {
+        return new ExpAng(matrix);
+    }
+}
+
 Expressao PExpPrimaria() :
 {
     Expressao retorno;
@@ -570,6 +582,8 @@ Expressao PExpUnaria() :
 	|
 	  retorno = PExpDist()
 	|
+	  retorno = PExpAng()
+	|
 	  retorno = PExpPm()
 	)
 	{
@@ -603,7 +617,8 @@ Expressao PExpBinaria() :
         	retorno = PExpMultMatriz()
 	    | LOOKAHEAD (PExpPrimaria() <STAR>)
           	retorno = PExpMult()
-
+		| LOOKAHEAD (PExpPrimaria() <SLASH>)
+			retorno = PExpDiv()
 	)
 	{
 		return retorno;
@@ -620,6 +635,18 @@ ExpSoma PExpSoma() :
 	<PLUS>
 	dir = PExpressao()
 	{return new ExpSoma(esq, dir);}
+}
+
+ExpDiv PExpDiv() :
+{
+	Expressao esq;
+	Expressao dir;
+}
+{
+	esq = PExpPrimaria()
+	<SLASH>
+	dir = PExpressao()
+	{return new ExpDiv(esq, dir);}
 }
 
 ExpSomaMatriz PExpSomaMatriz() :
@@ -758,7 +785,7 @@ Expressao PExpressao() :
 	(
 	    LOOKAHEAD (2) 
 	  		retorno = PExpUnaria()
-	  | LOOKAHEAD (PExpPrimaria() (<OR> | <AND> | <MINUS> | <M_MINUS> | <PLUS> | <M_PLUS> | <EQ> | <CONCAT> | <STAR> | <M_MULT> ))
+	  | LOOKAHEAD (PExpPrimaria() (<OR> | <AND> | <MINUS> | <M_MINUS> | <PLUS> | <M_PLUS> | <EQ> | <CONCAT> | <STAR> | <SLASH> | <M_MULT> ))
 	  		retorno = PExpBinaria()
 	  |                 retorno = PExpPrimaria()
 	)

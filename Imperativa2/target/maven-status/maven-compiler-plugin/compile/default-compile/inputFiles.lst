@@ -23,6 +23,7 @@
 /home/eduardo/Área de Trabalho/UFPE/PLP/Projeto-PLP-Geometria-Analitica/Imperativa2/target/generated-sources/javacc/li2/plp/imperative2/parser/JavaCharStream.java
 /home/eduardo/Área de Trabalho/UFPE/PLP/Projeto-PLP-Geometria-Analitica/Imperativa2/src/li2/plp/expressions2/expression/ExpConcat.java
 /home/eduardo/Área de Trabalho/UFPE/PLP/Projeto-PLP-Geometria-Analitica/Imperativa2/src/li2/plp/expressions1/util/ToStringProvider.java
+/home/eduardo/Área de Trabalho/UFPE/PLP/Projeto-PLP-Geometria-Analitica/Imperativa2/src/li2/plp/expressions2/expression/ExpDiv.java
 /home/eduardo/Área de Trabalho/UFPE/PLP/Projeto-PLP-Geometria-Analitica/Imperativa2/src/li2/plp/expressions2/memory/Contexto.java
 /home/eduardo/Área de Trabalho/UFPE/PLP/Projeto-PLP-Geometria-Analitica/Imperativa2/src/li2/plp/imperative1/command/Comando.java
 /home/eduardo/Área de Trabalho/UFPE/PLP/Projeto-PLP-Geometria-Analitica/Imperativa2/src/li2/plp/expressions2/expression/ValorInteiro.java
@@ -51,6 +52,7 @@
 /home/eduardo/Área de Trabalho/UFPE/PLP/Projeto-PLP-Geometria-Analitica/Imperativa2/src/li2/plp/expressions2/memory/IdentificadorJaDeclaradoException.java
 /home/eduardo/Área de Trabalho/UFPE/PLP/Projeto-PLP-Geometria-Analitica/Imperativa2/src/li2/plp/imperative2/declaration/DeclaracaoProcedimento.java
 /home/eduardo/Área de Trabalho/UFPE/PLP/Projeto-PLP-Geometria-Analitica/Imperativa2/src/li2/plp/expressions2/memory/ContextoCompilacao.java
+/home/eduardo/Área de Trabalho/UFPE/PLP/Projeto-PLP-Geometria-Analitica/Imperativa2/src/li2/plp/expressions2/expression/ExpAng.java
 /home/eduardo/Área de Trabalho/UFPE/PLP/Projeto-PLP-Geometria-Analitica/Imperativa2/src/li2/plp/imperative1/command/Write.java
 /home/eduardo/Área de Trabalho/UFPE/PLP/Projeto-PLP-Geometria-Analitica/Imperativa2/target/generated-sources/javacc/li2/plp/imperative2/parser/Token.java
 /home/eduardo/Área de Trabalho/UFPE/PLP/Projeto-PLP-Geometria-Analitica/Imperativa2/target/generated-sources/javacc/li2/plp/imperative2/parser/Imp2ParserConstants.java

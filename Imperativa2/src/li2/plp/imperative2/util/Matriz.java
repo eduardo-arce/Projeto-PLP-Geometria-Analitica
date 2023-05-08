@@ -62,6 +62,48 @@ public class Matriz {
         return new Matriz(matrix);
     }
 
+    public static Double rad2graus(Double anguloRad){
+
+        Double anguloGraus = anguloRad * 180 / Math.PI;
+
+        return anguloGraus;
+    }
+
+    public static Double graus2rad(Double anguloGraus){
+
+        Double anguloRad = anguloGraus * Math.PI / 180;
+
+        return anguloRad;
+    }
+
+    public static Double ang(Matriz matriz) throws IncompatibleMatrixSizesException{
+        int cols = matriz.linhas.get(0).size();
+
+        // impar
+        if (cols % 2 != 0) throw new IncompatibleMatrixSizesException();
+
+        int dim = cols/2;
+        Double prodEscalarVet = 0.0;
+
+        for (int i = 0; i < dim; i++) {
+            prodEscalarVet += matriz.linhas.get(0).get(i) * matriz.linhas.get(0).get(i+dim);
+        }
+
+        Double vetorA = 0.0;
+        Double vetorB = 0.0;
+
+        for (int i = 0; i < dim; i++) {
+            vetorA += Math.pow(matriz.linhas.get(0).get(i), 2);
+            vetorB += Math.pow(matriz.linhas.get(0).get(i+dim), 2);
+        }
+
+        Double calc = Math.abs(prodEscalarVet / (Math.sqrt(vetorA) * Math.sqrt(vetorB)));
+
+        Double ang = rad2graus(Math.acos(calc));
+
+        return ang;
+    }
+
     public static Double dist(Matriz matriz) throws IncompatibleMatrixSizesException{        
         int cols = matriz.linhas.get(0).size();
 

@@ -9,38 +9,30 @@ import li2.plp.expressions2.memory.VariavelNaoDeclaradaException;
 import li2.plp.imperative2.util.IncompatibleMatrixSizesException;
 import li2.plp.imperative2.util.Matriz;
 
-public class ExpMulti extends ExpBinaria {
+public class ExpAng extends ExpUnaria{
 
-    public ExpMulti(Expressao esq, Expressao dir) {
-        super(esq, dir, "*");
+    public ExpAng(Expressao exp) {
+        super(exp, "ang");
     }
-    
+
     @Override
     protected boolean checaTipoElementoTerminal(AmbienteCompilacao amb) throws VariavelNaoDeclaradaException, VariavelJaDeclaradaException {
-        return eInteiro(amb);
+        return getExp().getTipo(amb).eMatriz();
     }
 
     @Override
-    public ExpBinaria clone() {
-        return new ExpMulti(esq.clone(), dir.clone());
+    public ExpUnaria clone() {
+        return new ExpAng(exp.clone());
     }
 
     @Override
     public Valor avaliar(AmbienteExecucao amb) throws VariavelNaoDeclaradaException, VariavelJaDeclaradaException, IncompatibleMatrixSizesException {
-        return new ValorInteiro(
-                ((ValorInteiro) getEsq().avaliar(amb)).valor() *
-                        ((ValorInteiro) getDir().avaliar(amb)).valor()
-        );
-
+        Matriz matriz = ((ValorMatriz) getExp().avaliar(amb)).valor();        
+        return new ValorDouble(Matriz.ang(matriz));
     }
 
     @Override
     public Tipo getTipo(AmbienteCompilacao amb) throws VariavelNaoDeclaradaException, VariavelJaDeclaradaException {
-        return TipoPrimitivo.INTEIRO;
+        return TipoPrimitivo.MATRIZ;
     }
-
-    private boolean eInteiro(AmbienteCompilacao ambiente) {
-        return (getEsq().getTipo(ambiente).eInteiro() && getDir().getTipo(ambiente).eInteiro());
-    }
-
 }
