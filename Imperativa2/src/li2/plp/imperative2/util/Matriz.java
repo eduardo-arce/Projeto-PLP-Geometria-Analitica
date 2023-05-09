@@ -69,7 +69,7 @@ public class Matriz {
         return anguloGraus;
     }
 
-    public static Double graus2rad(Double anguloGraus){
+    public static Double graus2rad(Integer anguloGraus){
 
         Double anguloRad = anguloGraus * Math.PI / 180;
 

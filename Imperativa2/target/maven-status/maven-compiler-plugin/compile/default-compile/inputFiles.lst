@@ -76,6 +76,7 @@
 /home/eduardo/Área de Trabalho/UFPE/PLP/Projeto-PLP-Geometria-Analitica/Imperativa2/src/li2/plp/imperative2/memory/ProcedimentoNaoDeclaradoException.java
 /home/eduardo/Área de Trabalho/UFPE/PLP/Projeto-PLP-Geometria-Analitica/Imperativa2/src/li2/plp/expressions2/expression/ExpOr.java
 /home/eduardo/Área de Trabalho/UFPE/PLP/Projeto-PLP-Geometria-Analitica/Imperativa2/src/li2/plp/imperative2/util/IncompatibleMatrixSizesException.java
+/home/eduardo/Área de Trabalho/UFPE/PLP/Projeto-PLP-Geometria-Analitica/Imperativa2/src/li2/plp/expressions2/expression/ExpGraus2Rad.java
 /home/eduardo/Área de Trabalho/UFPE/PLP/Projeto-PLP-Geometria-Analitica/Imperativa2/src/li2/plp/expressions2/expression/ExpSubMatriz.java
 /home/eduardo/Área de Trabalho/UFPE/PLP/Projeto-PLP-Geometria-Analitica/Imperativa2/src/li2/plp/imperative2/declaration/ListaDeclaracaoParametro.java
 /home/eduardo/Área de Trabalho/UFPE/PLP/Projeto-PLP-Geometria-Analitica/Imperativa2/src/li2/plp/imperative1/memory/ListaValor.java
@@ -88,6 +89,7 @@
 /home/eduardo/Área de Trabalho/UFPE/PLP/Projeto-PLP-Geometria-Analitica/Imperativa2/src/li2/plp/expressions2/memory/Ambiente.java
 /home/eduardo/Área de Trabalho/UFPE/PLP/Projeto-PLP-Geometria-Analitica/Imperativa2/src/li2/plp/expressions2/declaration/DecVariavel.java
 /home/eduardo/Área de Trabalho/UFPE/PLP/Projeto-PLP-Geometria-Analitica/Imperativa2/src/li2/plp/expressions2/expression/ExpMulti.java
+/home/eduardo/Área de Trabalho/UFPE/PLP/Projeto-PLP-Geometria-Analitica/Imperativa2/src/li2/plp/expressions2/expression/ExpRad2Graus.java
 /home/eduardo/Área de Trabalho/UFPE/PLP/Projeto-PLP-Geometria-Analitica/Imperativa2/src/li2/plp/expressions2/memory/ContextoExecucao.java
 /home/eduardo/Área de Trabalho/UFPE/PLP/Projeto-PLP-Geometria-Analitica/Imperativa2/src/li2/plp/imperative1/command/While.java
 /home/eduardo/Área de Trabalho/UFPE/PLP/Projeto-PLP-Geometria-Analitica/Imperativa2/src/li2/plp/imperative1/command/IO.java

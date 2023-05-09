@@ -133,8 +133,10 @@ TOKEN : { /* OPERACOES DE MATRIZES */
     < IDENTITY : "identity" > |
     < TRANSPOSE : "transpose" > |
     < DIST : "dist" > |
-    < PM : "pm" >| 
-    < ANG : "ang" >
+    < PM : "pm" > | 
+    < ANG : "ang" > |
+    < RAD2GRAUS : "rad2graus" > |
+    < GRAUS2RAD : "graus2rad" >
 }
 
 TOKEN : /* TOKENS DE IMPERATIVA 2 */
@@ -166,6 +168,8 @@ TOKEN : /* LITERALS */
   < #HEX_LITERAL: "0" ["x","X"] (["0"-"9","a"-"f","A"-"F"])+ >
 |
   < #OCTAL_LITERAL: "0" (["0"-"7"])* >
+|
+  <DOUBLE_LITERAL: ["0"-"9"] (["0"-"9"])* (".") (["0"-"9"])+ | "-" ["0"-"9"] (["0"-"9"])* (".") (["0"-"9"])+ >
 |
   < STRING_LITERAL:
       "\""
@@ -421,6 +425,17 @@ Valor PValorInteiro() :
 	}
 }
 
+Valor PValorDouble() :
+{
+	Token token;
+}
+{
+	token = <DOUBLE_LITERAL>
+	{
+		return new ValorDouble(Double.parseDouble(token.toString()));
+	}
+}
+
 Valor PValorBooleano() :
 {
 }
@@ -451,6 +466,7 @@ Valor PValor() :
       	  retorno = PValorInteiro() 
 		| retorno = PValorBooleano()
 		| retorno = PValorString()
+		| retorno = PValorDouble()
     )
 	
 	{
@@ -547,6 +563,28 @@ Expressao PExpAng() :
     }
 }
 
+Expressao PExpRad2Graus() :
+{
+    Expressao matrix;
+}
+{
+    <RAD2GRAUS> matrix = PExpressao()
+    {
+        return new ExpRad2Graus(matrix);
+    }
+}
+
+Expressao PExpGraus2Rad() :
+{
+    Expressao matrix;
+}
+{
+    <GRAUS2RAD> matrix = PExpressao()
+    {
+        return new ExpGraus2Rad(matrix);
+    }
+}
+
 Expressao PExpPrimaria() :
 {
     Expressao retorno;
@@ -585,6 +623,10 @@ Expressao PExpUnaria() :
 	  retorno = PExpAng()
 	|
 	  retorno = PExpPm()
+	|
+	  retorno = PExpGraus2Rad()
+	|
+	  retorno = PExpRad2Graus()
 	)
 	{
 		return retorno;
@@ -920,7 +962,8 @@ Tipo PTipo():
 	(
 	<INT> {tipo = TipoPrimitivo.INTEIRO;} |
 	<BOOLEAN> {tipo = TipoPrimitivo.BOOLEANO;} |
-	<STRING> {tipo = TipoPrimitivo.STRING;}
+	<STRING> {tipo = TipoPrimitivo.STRING;} |
+	<DOUBLE> {tipo = TipoPrimitivo.DOUBLE;}
 	)
 	{
 		return tipo;
