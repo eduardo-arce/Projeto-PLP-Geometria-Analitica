@@ -1,8 +1,13 @@
 { 
-   //var a = dist([10,0,1,5]);
-   //var a = pm([-10,0,11,-5]);
-   //var a = 3/2;
-   //var a = ang([1,1,-2,-2,1,1]);
-   var a = rad2graus(1.0472);
-   write(a)
+   var calcDist = dist([10,0,1,5]),
+   var calcPm = pm([-10,0,11,-5]),
+   var calcAng = ang([1,1,-2,-2,1,1]),
+   var calcGraus2Rad = graus2rad(60),
+   var calcRad2Graus = rad2graus(1.0472);
+
+   write(calcDist);
+   write(calcPm);
+   write(calcAng);
+   write(calcGraus2Rad);
+   write(calcRad2Graus)
 }

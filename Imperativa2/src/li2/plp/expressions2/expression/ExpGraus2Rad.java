@@ -17,7 +17,7 @@ public class ExpGraus2Rad extends ExpUnaria{
 
     @Override
     protected boolean checaTipoElementoTerminal(AmbienteCompilacao amb) throws VariavelNaoDeclaradaException, VariavelJaDeclaradaException {
-        return getExp().getTipo(amb).eInteiro();
+        return (getExp().getTipo(amb).eDouble()||getExp().getTipo(amb).eInteiro());
     }
 
     @Override
@@ -27,12 +27,21 @@ public class ExpGraus2Rad extends ExpUnaria{
 
     @Override
     public Valor avaliar(AmbienteExecucao amb) throws VariavelNaoDeclaradaException, VariavelJaDeclaradaException, IncompatibleMatrixSizesException {
-        Integer valor = ((ValorInteiro) getExp().avaliar(amb)).valor();        
+        if(getExp().avaliar(amb) instanceof ValorInteiro){
+            Double valor = Double.parseDouble((((ValorInteiro) getExp().avaliar(amb)).valor()).toString());
+			return new ValorDouble(Matriz.graus2rad(valor));
+		}
+        Double valor = (((ValorDouble) getExp().avaliar(amb)).valor());
         return new ValorDouble(Matriz.graus2rad(valor));
     }
 
     @Override
     public Tipo getTipo(AmbienteCompilacao amb) throws VariavelNaoDeclaradaException, VariavelJaDeclaradaException {
-        return TipoPrimitivo.INTEIRO;
+        if(getExp().getTipo(amb).eDouble()||getExp().getTipo(amb).eInteiro()){
+			return TipoPrimitivo.INTEIRO;
+		}
+		else{
+			return TipoPrimitivo.DOUBLE;
+		}
     }
 }
