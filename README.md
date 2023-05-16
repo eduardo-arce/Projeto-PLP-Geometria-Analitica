@@ -105,7 +105,9 @@ Valor ::= <a href="https://github.com/eduardo-arce/Projeto-PLP-Geometria-Analiti
 ValorConcreto ::= <a href="https://github.com/eduardo-arce/Projeto-PLP-Geometria-Analitica/blob/feature/eduardo_arce/Imperativa2/src/li2/plp/expressions2/expression/ValorInteiro.java">ValorInteiro</a>
              |    <a href="https://github.com/eduardo-arce/Projeto-PLP-Geometria-Analitica/blob/feature/eduardo_arce/Imperativa2/src/li2/plp/expressions2/expression/ValorBooleano.java">ValorBooleano</a>
              |    <a href="https://github.com/eduardo-arce/Projeto-PLP-Geometria-Analitica/blob/feature/eduardo_arce/Imperativa2/src/li2/plp/expressions2/expression/ValorString.java">ValorString</a>
+             |    <a href="https://github.com/eduardo-arce/Projeto-PLP-Geometria-Analitica/blob/feature/eduardo_arce/Imperativa2/src/li2/plp/expressions2/expression/ValorMatriz.java"><i>ValorMatriz</i></a>
              |    <a href="https://github.com/eduardo-arce/Projeto-PLP-Geometria-Analitica/blob/feature/eduardo_arce/Imperativa2/src/li2/plp/expressions2/expression/ValorDouble.java"><i>ValorDouble</i></a>
+             
 
 ExpUnaria ::=  <a href="https://github.com/eduardo-arce/Projeto-PLP-Geometria-Analitica/blob/feature/eduardo_arce/Imperativa2/src/li2/plp/expressions2/expression/ExpMenos.java">"-" Expressao</a> 
           |    <a href="https://github.com/eduardo-arce/Projeto-PLP-Geometria-Analitica/blob/feature/eduardo_arce/Imperativa2/src/li2/plp/expressions2/expression/ExpMenos.java">"not" Expressao</a>
@@ -136,7 +138,7 @@ DeclaracaoProcedimento ::= <a href="https://github.com/eduardo-arce/Projeto-PLP-
 
 ListaDeclaracaoParametro ::= <a href="https://github.com/eduardo-arce/Projeto-PLP-Geometria-Analitica/blob/feature/eduardo_arce/Imperativa2/src/li2/plp/imperative2/declaration/DeclaracaoParametro.java">Tipo Id</a> |  <a href="https://github.com/eduardo-arce/Projeto-PLP-Geometria-Analitica/blob/feature/eduardo_arce/Imperativa2/src/li2/plp/imperative2/declaration/ListaDeclaracaoParametro.java">Tipo Id "," ListaDeclaracaoParametro</a> 
 
-Tipo ::= "string" | "int" | "boolean" | <i>"double"</i>
+Tipo ::= "string" | "int" | "boolean" | <i>"matriz"</i> | <i>"double"</i>
 
 While ::= "while" Expressao "do" Comando
 
